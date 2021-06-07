@@ -1,0 +1,261 @@
+@import "variables";
+@import "mixins";
+// estos import me permiter llamar alos mixion y las varibles de entorno
+// @include box-sizing(border-box) esto permite que el  pading y o un border cambien el tamaño de una caja o elemento
+html {
+  @include box-sizing(border-box);
+}
+// esto permite agregar el box-sizing a nuestro elementos
+*,
+*::after,
+*::before {
+  @include box-sizing(inherit);
+}
+
+body {
+  background-color: $negro;
+  /*cambiamos el tipo de fuente*/
+  font-family: $fuentePrincipal;
+  /*cambiamos el color del texto de todo la pagina a  gris*/
+  color: $gris2;
+  @include tablet {
+    /*esto elimina el color previo*/
+    background-color: unset;
+    background-image: url(../img/fondo.jpg);
+    /*por defaul todos los backgraund se repiten, por esa razoncolocamos no repeat*/
+    background-repeat: no-repeat;
+    /*colocamos cover para que tome todo el espacio disponible*/
+    background-size: cover;
+    /*posicion del backgroud- se vea con poco alto oea la mitar blanco, pero mientras llenamos datos se auto alargara*/
+    background-position: bottom center;
+  }
+}
+
+a {
+  color: $gris2;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.contenedor {
+  width: 90%;
+  margin: 0 auto;
+}
+.alerta{
+   color: $secundario; 
+   margin-bottom: 0.5rem;
+   padding: 0.2rem;
+   font-size: 0.8rem;
+   text-align: center;
+}
+input.no-valido{
+  border-bottom:5px solid $secundario !important;
+}
+.logotipo {
+  margin-top: 0.5rem;
+  /*esto va ser que el logo sea pequeño como maximo 100px*/
+  max-width: 80px;
+  @include tablet {
+    margin-top: 0.8rem;
+    /*cuando pones en porcentaje, la transicion de camnbio de posicion fluje un poco mas,IMPORTANTE*/
+    margin-left: 2%;
+  }
+}
+
+.formulario-login {
+  @include tablet {
+    background-color: rgba(0, 0, 0, 0.85);
+    /*le damos un ancho maximo, es preferible que sea asi*/
+    max-width: 450px;
+    padding: 2rem 4rem;
+    margin: 1rem auto 4rem auto;
+  }
+}
+
+form {
+  legend {
+    display: block;
+    color: $blanco;
+    font-size: 2rem;
+    margin: 2rem 0;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .campo {
+    margin-bottom: 0.8rem;
+    /*flex para que sea flexible */
+    display: flex;
+    /*esto permite que pueda contener a otro elemento, en este caso al que tenga posicion absolute*/
+    position: relative;
+    span{
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      
+      /*convertirlo en mayuscula*/
+      text-transform: uppercase;
+      &hover{
+        /*colocar la manito*/
+        cursor: pointer;
+      }
+    }
+    label {
+      /*colacamos posicion absolute, para que se meta dentro del contendor o campo que tiene position relative*/
+      position: absolute;
+      /*el top me da un espacio en la parte superior*/
+      top: 1.1rem;
+      /*le da espacio al ladp izquierdo*/
+      left: 1rem;
+      /*agremos un tamaño al texto*/
+      font-size: 0.9rem;
+      /*le estamos poniendo una animacion de transicion*/
+      transition: font-size 0.2s ease, top 0.2s ease;
+        &.valido{
+          font-size:0.6rem;
+          top: 0.5rem;
+        }
+    }
+    input {
+      /*para que tome todo en alcho disponible*/
+      flex: 1;
+      /*le damos padding para que cresca la caja por dentro*/
+      padding: 1.3rem 1rem 0.7rem 1rem;
+      /*Quitamos los border a las cajs o input*/
+      border: none;
+      background-color: $gris;
+      border-radius: $radius;
+      color: $blanco;
+      &:focus {
+        /*:focus; esta pseudoclases, permite que cuando se selecione el input tenga las propieades mensionadas */
+        background-color: $gris3;
+        /*esto permite quitar la linea, o color de borde cuando selecionamos la caja*/
+        outline: none;
+        + label {
+          /*el signo mas me permite selecionar el elemento que sigue al input, que en este caso es label */
+          /*disminumos el tamaño de la letra*/
+          font-size: 0.6rem;
+          /*disminuimos el top, porque anterior mente se decalro como 1.1rem*/
+          top: 0.5rem;
+        }
+      }
+    }
+  }
+  .submit {
+    display: flex;
+    margin-top: 2rem;
+    input[type="submit"] {
+      @include boton($tercero);
+      transition: all 300ms;
+      &:hover {
+        /*permite tener la manito cuando esta por ensima del boton*/
+        cursor: pointer;
+        background-color: $primario;
+       
+      }
+    }
+  }
+  .acciones {
+    display: flex;
+    /*le añadimos la separacion*/
+    justify-content: space-between;
+    padding: 0, 5rem 0;
+    margin: 0.5rem 0 5rem 0;
+    label,
+    a {
+      font-size: 0.8rem;
+      text-decoration: none;
+    }
+  }
+}
+.contenido-inferior {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
+
+  .login-face {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.6rem;
+    img {
+      max-width: 23px;
+      margin-right: 0.8rem;
+      cursor: pointer;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+  .newuser {
+    font-size: 1.0rem;
+    margin-bottom: 0.9rem;
+    .nuevo-usuario {
+      font-size: 1.1rem;
+      color: $blanco;
+    }
+  }
+  .recapcha {
+    font-size: 0.8rem;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    @include tablet {
+      font-size: 1rem;
+    }
+    .enlace {
+      color: blue;
+    }
+  }
+}
+
+.site-footer {
+  border-top: 1px solid $gris2;
+  padding: 2rem 0 1rem 0;
+
+  @include tablet {
+    /*eliminamos borde que anterior mente declaramos*/
+    border-top: unset;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 1rem 0 0.5rem 0;
+  }
+
+  .contenedor {
+    @include tablet {
+      max-width: 60%;
+    }
+  }
+  .menu-footer {
+    display: flex;
+
+    flex-wrap: wrap;
+    @include desktop {
+    }
+    a {
+      font-size: 1rem;
+      margin-right: 2rem;
+      padding: 0.5rem 0;
+      min-width: 200px;
+      &:last-of-type {
+        /*esto seleciona el ultimo enlace*/
+        margin-right: 0px;
+      }
+    }
+  }
+  select{
+      margin-top: 2rem;
+      /*permite que le des formato a la caja*/
+    appearance: none; 
+    padding: 1rem 3rem;
+    border: 1px solid $gris3;
+    border-radius: $radius;
+    font-size: 0.8rem;
+    background-color: $negro;
+    color: $gris2;
+  }
+}
+
+.propiedad{
+  margin-top: 4rem;
+  background-color:rgb(0, 0, 0);
+  text-align:center;
+}

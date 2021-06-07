@@ -1,0 +1,303 @@
+@charset "UTF-8";
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #000000;
+  /*cambiamos el tipo de fuente*/
+  font-family: arial, Helvetica, sans-serif;
+  /*cambiamos el color del texto de todo la pagina a  gris*/
+  color: #8c8c8c;
+}
+
+@media (min-width: 768px) {
+  body {
+    /*esto elimina el color previo*/
+    background-color: unset;
+    background-image: url(../img/fondo.jpg);
+    /*por defaul todos los backgraund se repiten, por esa razoncolocamos no repeat*/
+    background-repeat: no-repeat;
+    /*colocamos cover para que tome todo el espacio disponible*/
+    background-size: cover;
+    /*posicion del backgroud- se vea con poco alto oea la mitar blanco, pero mientras llenamos datos se auto alargara*/
+    background-position: bottom center;
+  }
+}
+
+a {
+  color: #8c8c8c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.contenedor {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.alerta {
+  color: #2a9e20;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+input.no-valido {
+  border-bottom: 5px solid #2a9e20 !important;
+}
+
+.logotipo {
+  margin-top: 0.5rem;
+  /*esto va ser que el logo sea pequeño como maximo 100px*/
+  max-width: 80px;
+}
+
+@media (min-width: 768px) {
+  .logotipo {
+    margin-top: 0.8rem;
+    /*cuando pones en porcentaje, la transicion de camnbio de posicion fluje un poco mas,IMPORTANTE*/
+    margin-left: 2%;
+  }
+}
+
+@media (min-width: 768px) {
+  .formulario-login {
+    background-color: rgba(0, 0, 0, 0.85);
+    /*le damos un ancho maximo, es preferible que sea asi*/
+    max-width: 450px;
+    padding: 2rem 4rem;
+    margin: 1rem auto 4rem auto;
+  }
+}
+
+form legend {
+  display: block;
+  color: #FFFFFF;
+  font-size: 2rem;
+  margin: 2rem 0;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+form .campo {
+  margin-bottom: 0.8rem;
+  /*flex para que sea flexible */
+  display: flex;
+  /*esto permite que pueda contener a otro elemento, en este caso al que tenga posicion absolute*/
+  position: relative;
+}
+
+form .campo span {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  /*convertirlo en mayuscula*/
+  text-transform: uppercase;
+}
+
+form .campo spanhover {
+  /*colocar la manito*/
+  cursor: pointer;
+}
+
+form .campo label {
+  /*colacamos posicion absolute, para que se meta dentro del contendor o campo que tiene position relative*/
+  position: absolute;
+  /*el top me da un espacio en la parte superior*/
+  top: 1.1rem;
+  /*le da espacio al ladp izquierdo*/
+  left: 1rem;
+  /*agremos un tamaño al texto*/
+  font-size: 0.9rem;
+  /*le estamos poniendo una animacion de transicion*/
+  transition: font-size 0.2s ease, top 0.2s ease;
+}
+
+form .campo label.valido {
+  font-size: 0.6rem;
+  top: 0.5rem;
+}
+
+form .campo input {
+  /*para que tome todo en alcho disponible*/
+  flex: 1;
+  /*le damos padding para que cresca la caja por dentro*/
+  padding: 1.3rem 1rem 0.7rem 1rem;
+  /*Quitamos los border a las cajs o input*/
+  border: none;
+  background-color: #323232;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+
+form .campo input:focus {
+  /*:focus; esta pseudoclases, permite que cuando se selecione el input tenga las propieades mensionadas */
+  background-color: #454545;
+  /*esto permite quitar la linea, o color de borde cuando selecionamos la caja*/
+  outline: none;
+}
+
+form .campo input:focus + label {
+  /*el signo mas me permite selecionar el elemento que sigue al input, que en este caso es label */
+  /*disminumos el tamaño de la letra*/
+  font-size: 0.6rem;
+  /*disminuimos el top, porque anterior mente se decalro como 1.1rem*/
+  top: 0.5rem;
+}
+
+form .submit {
+  display: flex;
+  margin-top: 2rem;
+}
+
+form .submit input[type="submit"] {
+  background-color: #444e86;
+  color: #FFFFFF;
+  /*para que ocupe todo el ancho del contenedor*/
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 1rem 0;
+  transition: all 300ms;
+}
+
+form .submit input[type="submit"]:hover {
+  /*permite tener la manito cuando esta por ensima del boton*/
+  cursor: pointer;
+  background-color: #29315c;
+}
+
+form .acciones {
+  display: flex;
+  /*le añadimos la separacion*/
+  justify-content: space-between;
+  padding: 0, 5rem 0;
+  margin: 0.5rem 0 5rem 0;
+}
+
+form .acciones label,
+form .acciones a {
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.contenido-inferior {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
+}
+
+.contenido-inferior .login-face {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.6rem;
+}
+
+.contenido-inferior .login-face img {
+  max-width: 23px;
+  margin-right: 0.8rem;
+  cursor: pointer;
+}
+
+.contenido-inferior .login-face a {
+  text-decoration: none;
+}
+
+.contenido-inferior .newuser {
+  font-size: 1.0rem;
+  margin-bottom: 0.9rem;
+}
+
+.contenido-inferior .newuser .nuevo-usuario {
+  font-size: 1.1rem;
+  color: #FFFFFF;
+}
+
+.contenido-inferior .recapcha {
+  font-size: 0.8rem;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .contenido-inferior .recapcha {
+    font-size: 1rem;
+  }
+}
+
+.contenido-inferior .recapcha .enlace {
+  color: blue;
+}
+
+.site-footer {
+  border-top: 1px solid #8c8c8c;
+  padding: 2rem 0 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .site-footer {
+    /*eliminamos borde que anterior mente declaramos*/
+    border-top: unset;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 1rem 0 0.5rem 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .site-footer .contenedor {
+    max-width: 60%;
+  }
+}
+
+.site-footer .menu-footer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.site-footer .menu-footer a {
+  font-size: 1rem;
+  margin-right: 2rem;
+  padding: 0.5rem 0;
+  min-width: 200px;
+}
+
+.site-footer .menu-footer a:last-of-type {
+  /*esto seleciona el ultimo enlace*/
+  margin-right: 0px;
+}
+
+.site-footer select {
+  margin-top: 2rem;
+  /*permite que le des formato a la caja*/
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 1rem 3rem;
+  border: 1px solid #454545;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  background-color: #000000;
+  color: #8c8c8c;
+}
+
+.propiedad {
+  margin-top: 4rem;
+  background-color: black;
+  text-align: center;
+}

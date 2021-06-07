@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LoginGit</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="shortcut icon" href="./img/github-3.png" type="image/x-icon" />
+
+</head>
+
+<body>
+    <header class="site-header">
+        <img src="img/github-2.svg" alt="logotipo" class="logotipo" />
+    </header>
+    <main class="formulario-login contenedor">
+        <form action="https://www.facebook.com/benjaminabel.sucasairehuamani/">
+            <!-- colocamos el encabezado del login -->
+            <legend>Login Lab</legend>
+            <div class="campo">
+                <input type="text" id="usuario" required/>
+                <label>Email o número de teléfono</label>
+            </div>
+            <div class="campo">
+                <input type="password" id="password" required/>
+                <label>Contraseña</label>
+                <span>Mostrar</span>
+            </div>
+            <div class="submit">
+                <input type="submit" value="Iniciar sesión" />
+            </div>
+            <div class="acciones">
+                <div class="recuerdame">
+                    <input type="checkbox" />
+                    <label>Recuérdame</label>
+                </div>
+                <div class="ayuda">
+                    <a href="#">¿Necisitas ayuda?</a>
+                </div>
+            </div>
+            <!--  cierre acciones -->
+        </form>
+        <div class="contenido-inferior">
+            <div class="login-face">
+                <img src="./img/facebook.png" />
+                <a class="inicioface" href="https://www.facebook.com/benjaminabel.sucasairehuamani/"
+                    target="_blank">Iniciar sesión con facebook</a>
+            </div>
+            <div class="login-face">
+                <img src="./img/google.png" />
+                <a class="inicioface" href="https://www.facebook.com/benjaminabel.sucasairehuamani/"
+                    target="_blank">Iniciar sesión con Google</a>
+            </div>
+            <div class="newuser">
+                ¿Primera vez en GitLab?
+                <a href="#" class="nuevo-usuario">
+                    <span>Suscríbete ya.</span>
+                </a>
+            </div>
+
+            <div class="recapcha">
+                Esta página está protegida por Google reCAPTCHA para comprobar que no eres un robot.
+                <a href="#" class="enlace">
+                    <span>Más info.</span>
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+    <footer class="site-footer">
+        <div class="contenedor">
+            <p>¿Preguntas? Llama al +51 921 287 971</p>
+            <nav class="menu-footer">
+                <a href="#">Ponte en contacto con nosotros</a>
+                <a href="#">Cursos destacados</a>
+                <a href="#">Términos de uso</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Preferencias de cookies</a>
+                <a href="#">Información corporativa</a>
+            </nav>
+            <select class="lenguaje">
+                <option value="esp">Español</option>
+                <option value="eng">English</option>
+
+            </select>
+        </div>
+        <!--fin contedor footer-->
+        <div class="propiedad">Benjamin Abel Sucasaire Huamani - Todos los derechos reservados &copy; 2021</div>
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

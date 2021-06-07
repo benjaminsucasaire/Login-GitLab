@@ -1,0 +1,36 @@
+//medias queries
+//siempre se tiene que agregar @content; dentro de las llaves
+@mixin telefono {
+    @media (min-width:#{$telefono}){
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width:#{$tablet}){
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width:#{$desktop}){
+        @content;
+    }
+}
+//agregamos un nuevo mixin
+@mixin box-sizing($box-model) {
+    box-sizing: $box-model;
+}
+//agregamos un nuevo mixin para los botones
+@mixin boton($bgColor){
+background-color: $bgColor;
+color: $blanco;
+/*para que ocupe todo el ancho del contenedor*/
+display: block;
+width: 100%;
+text-align: center;
+text-decoration: none;
+border: none;
+border-radius:$radius;
+font-size: 1rem;
+padding: 1rem 0;
+}
